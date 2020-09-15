@@ -1,4 +1,4 @@
-let basket = {
+export let basket = {
     items: [],
     container: null,
     containerItems: null,
