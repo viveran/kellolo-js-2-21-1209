@@ -1,5 +1,5 @@
 .sale-product-backg {
-    background-color: #222222;
+    background-color: $baseTextColor;
 
     .sale-product {
         display: flex;
@@ -15,12 +15,16 @@
             justify-content: space-between;
             height: 138px;
             width: 325px;
-            color: #fbfbfb;
+            color: $lightTextColor;
 
             a {
                 font-size: 20px;
                 font-weight: 700;
                 font-family: 'Roboto-Regular', sans-serif;
+                &:hover {
+                    color: $baseBtnColor;
+                    cursor: pointer;
+                }
             }
 
             p {
