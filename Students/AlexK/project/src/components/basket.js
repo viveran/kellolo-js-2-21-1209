@@ -2,11 +2,11 @@ export let basket = {
     items: [],
     container: null,
     containerItems: null,
-    shown: false,
-    url: 'https://raw.githubusercontent.com/kellolo/static/master/JSON/basket.json',
+    // shown: false,
+    url: 'https://raw.githubusercontent.com/kulyamzin/GeekBrain/master/Files/GeekBrains/basket.json',
     init() {
-        this.container = document.querySelector('#basket');
-        this.containerItems = document.querySelector('#basket-items');
+        this.container = document.querySelector('.b-basket');
+        // this.containerItems = document.querySelector('#basket-items');
         this._get(this.url)
             .then(basket => {
                 this.items = basket.content;
@@ -20,43 +20,48 @@ export let basket = {
         return fetch(url).then(d => d.json());
     },
     _render() {
-        let htmlStr = '';
+        let htmlStr = `<div class="b-basket__top">
+                        <div class="b-basket-main">Product Details</div>
+                        <div class="b-basket-info">unite Price</div>
+                        <div class="b-basket-info">Quantity</div>
+                        <div class="b-basket-info">shipping</div>
+                        <div class="b-basket-info">Subtotal</div>
+                        <div class="b-basket-info">ACTION</div>
+                       </div>`;
         this.items.forEach(item => {
             htmlStr += `
-            <div class="d-flex headerCartWrapIn mb-1 p-2">
-                    <img src="${item.productImg}" alt="" width="85" height="100>
-                    <div>
-                        <div>${item.productName}</div>
-                        <span>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </span>
-                        <div class="headerCartWrapPrice">${item.amount} 
-                            <span>x</span> $${item.productPrice}
-                        </div>
-
-                <button 
-                    class="fas fa-times-circle" 
-                    data-id="${item.productId}"
-                    name="remove"
-                ></button>
+            <div class="b-basket__row">
+            <div class="b-basket__row__item b-basket-main">
+                <div class="b-basket__row__item-img"><img src="${item.productImg}" alt="basket"></div>
+                <div class="b-basket__row__item-txt">
+                    <h3><a href="#">${item.productName}</a></h3>
+                    <p><b>Color:</b> ${item.productColor}<br>
+                       <b>Size:</b> ${item.productSize}</p>
+                </div>
             </div>
-            `
+            <div class="b-basket-info">${item.productPrice}</div>
+            <div class="b-basket-info"><input type="text" maxlength="4" value="${item.amount}"></div>
+            <div class="b-basket-info">free</div>
+            <div class="b-basket-info">${item.productPrice*item.amount}</div>
+            <div class="b-basket-info">
+                <button>   
+                    <i class="fa fa-times-circle-o" aria-hidden="true" data-id="${item.productId}" name="remove"></i>
+                </button>
+            </div>
+        </div>`
+
         });
         this.container.innerHTML = htmlStr;
     },
     _handleActions() {
-        document.querySelector('#basket-toggler').addEventListener('click', () => {
-            this.container.classList.toggle('invisible');
-            // document.querySelector('#basket').classList.toggle('invisible');
-            this.shown = !this.shown;
-        })
+        // document.querySelector('#basket-toggler').addEventListener('click', () => {
+        //     this.container.classList.toggle('invisible');
+        //     // document.querySelector('#basket').classList.toggle('invisible');
+        //     this.shown = !this.shown;
+        // })
 
         this.container.addEventListener('click', ev => {
-            if (ev.target.name == 'remove') {
+            if (ev.target.getAttribute('name')== 'remove') {
                 this._remove(ev.target.dataset.id);
             }
         })
@@ -80,5 +85,3 @@ export let basket = {
         this._render();
     }
 }
-
-basket.init();

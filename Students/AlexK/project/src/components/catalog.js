@@ -5,7 +5,7 @@ export let catalog = {
     url: 'https://raw.githubusercontent.com/kellolo/static/master/JSON/catalog.json',
     init() {
         this.container = document.querySelector('#catalog');
-       // this.basket = basket;
+        // this.basket = basket;
         this._get(this.url)
             .then(arr => {
                 this.items = arr;
@@ -24,7 +24,7 @@ export let catalog = {
     _render() {
         let htmlStr = '';
         this.items.forEach(item => {
-            htmlStr += `<div class="b-item">
+            htmlStr += `<div class="b-item" id="${item.productId}">
                             <div class="b-item-pic">
                                 <img src="${item.productImg}" alt="1">
                             </div>
@@ -69,5 +69,3 @@ export let catalog = {
         }
     }
 }
-
-catalog.init();
