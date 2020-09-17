@@ -219,7 +219,7 @@ button:active {
         .container .header .header-search .search .search_loupe:hover {
           background-color: #a4a4a4; }
         .container .header .header-search .search .search_loupe:hover i {
-          color: white;
+          color: #ffffff;
           transform: rotateY(360deg) scale(1.2);
           transition: 1s; }
 
@@ -247,6 +247,7 @@ button:active {
     outline: none; }
     .container .header-account .my_account:focus-within .my-account-cart {
       position: absolute;
+      z-index: 99;
       width: 262px;
       height: 440px;
       border: 1px solid #e1e1e1;
@@ -815,7 +816,7 @@ footer {
       font-weight: 400;
       letter-spacing: 0.4px; }
       footer .footer p a:hover {
-        color: #3e3e40; }
+        color: #4a4a4a; }
     footer .footer .footer-link {
       width: 191px;
       height: 32px; }
@@ -871,7 +872,7 @@ footer {
   background-color: #e8e8e8; }
   .container_color .the-brand {
     height: 613px;
-    background-image: url("../img/2_the-brand/the-brand.jpg");
+    background-image: url("../../assets/img/2_the-brand/the-brand.jpg");
     background-repeat: no-repeat;
     display: flex;
     flex-direction: row;
@@ -957,12 +958,12 @@ footer {
   .for .for-left {
     height: 823px; }
     .for .for-left .for-men {
-      background-image: url("../img/3_for/for-men.jpg");
+      background-image: url("../../../../assets/img/3_for/for-men.jpg");
       background-repeat: no-repeat;
       width: 560px;
       height: 542px; }
     .for .for-left .accesories {
-      background-image: url("../img/3_for/accesories.jpg");
+      background-image: url("../../../../assets/img/3_for/accesories.jpg");
       background-repeat: no-repeat;
       background-color: #dadad2;
       background-position: top right;
@@ -973,12 +974,12 @@ footer {
   .for .for-right {
     height: 823px; }
     .for .for-right .for-women {
-      background-image: url("../img/3_for/for-women.jpg");
+      background-image: url("../../../../img/3_for/for-women.jpg");
       background-repeat: no-repeat;
       width: 560px;
       height: 261px; }
     .for .for-right .for-kids {
-      background-image: url("../img/3_for/for-kids.jpg");
+      background-image: url("../../../../assets/img/3_for/for-kids.jpg");
       background-repeat: no-repeat;
       width: 560px;
       height: 542px; }
