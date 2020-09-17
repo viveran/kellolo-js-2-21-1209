@@ -81,4 +81,3 @@ export let basket = {
     }
 }
 
-basket.init();
